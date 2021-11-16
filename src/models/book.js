@@ -20,16 +20,4 @@ const Book = sequelize.define('Book', {
   modelName: 'Book',
 });
 
-const environment = process.env.NODE_ENV || 'dev';
-
-const populateDummyData = async () => {
-  // Populate environment with some dummy data in dev
-  await Book.sync({force: true});
-  await Book.create({bookId: 1, title: 'The Hobbit', author: 'J. R. R. Tolkien'});
-};
-
-if (environment === 'dev') {
-  populateDummyData();
-}
-
 module.exports = Book;
