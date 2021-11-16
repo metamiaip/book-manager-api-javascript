@@ -11,8 +11,6 @@ This is the starter repository for the Further APIs session. It provides a start
 - [ExpressJS](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
 - [SQLite3](https://www.npmjs.com/package/sqlite3)
-- [MySQL2](https://www.npmjs.com/package/mysql2)
-- [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Jest](https://jestjs.io/)
 - [Supertest](https://www.npmjs.com/package/supertest)
 - [ESLint](https://eslint.org/)
