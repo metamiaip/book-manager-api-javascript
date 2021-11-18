@@ -31,18 +31,23 @@ const saveBook = async (req, res) => {
 const updateBook = async (req, res) => {
   const bookUpdateData = req.body;
   const bookId = req.params.bookId;
-  const book = await bookService.updateBook(bookId, bookUpdateData);
-  res.status(204).json(book);
+  const bookExist = await bookService.getBook(Number(bookId));
+  if (bookExist) {
+    const book = await bookService.updateBook(bookId, bookUpdateData);
+    res.status(204).json('Update successful!');
+  } else {
+    res.status(404).json('Fail to update book!');
+  }
 };
 
 const deleteBook = async (req, res) => {
   const bookId = req.params.bookId;
-  const book = await bookService.deleteBook(Number(bookId));
-
-  if (book) {
-    res.json(book).status(200);
+  const bookExist = await bookService.getBook(Number(bookId));
+  if (bookExist) {
+    const book = await bookService.deleteBook(Number(bookId));
+    res.status(204).json('Delete successful!');
   } else {
-    res.status(404).json('Not found');
+    res.status(404).json('Fail to delete book!');
   }
 };
 
