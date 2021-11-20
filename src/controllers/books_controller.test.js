@@ -87,3 +87,30 @@ describe('GET /api/v1/books/{bookId} endpoint', () => {
     expect(res.body).toEqual(dummyBookData[1]);
   });
 });
+
+describe('DELETE /api/v1/books endpoint', () => {
+  test('controller successfully returns empty object as JSON', async () => {
+    // Arrange
+    bookService.getBook = jest.fn().mockReturnValue(dummyBookData);
+    
+    // Act
+    const res = await request(app).delete('/api/v1/books/2');
+
+    // Assert
+    expect(res.body).toEqual({});
+  });
+
+  test('check getBook, deleteBook has been called once only in Book delete', async () => {
+    // Arrange
+    bookService.getBook = jest.fn().mockReturnValue(dummyBookData);
+    const delBook = jest.spyOn(bookService,'deleteBook');
+    const getBk = jest.spyOn(bookService,'getBook');
+
+    // Act
+    const res = await request(app).delete('/api/v1/books/3');
+
+    // Assert
+    expect(delBook).toHaveBeenCalledTimes(1);
+    expect(getBk).toHaveBeenCalledTimes(1);
+  });
+});
