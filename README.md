@@ -92,3 +92,6 @@ API Call Syntax:
   - in src/server.js, please set as: require('dotenv').config({ path: `./.env.${environment}` });
   - in .env.prod, add DB_PORT=5432 rather than put in DB_HOST
   - in src/models/book.js, add option "timestamps: false,", otherwise, sequelize always add createdBy, updatedBy in all build SQL and fail your query (I forked the repo too early and this syntax is missing)
+
+- To run the repo, please install as below:
+  - npm install pg pg-hstore dotenv
