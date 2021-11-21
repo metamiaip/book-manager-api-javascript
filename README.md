@@ -64,3 +64,27 @@ to add in exception handling to the project?
 
 - Clue 2: What if someone wants to find a book by an ID that doesn't yet exist? 
   How can we improve the API by handling errors gracefully and show a helpful message to the client?
+
+API Call Syntax:
+- To return all books in the DB
+  - GET /api/v1/books
+- To return a single book in the DB
+  - GET /api/v1/books/:bookId (e.g. GET /api/v1/books/1)
+- To create a book in the DB
+  - POST /api/v1/books
+  - JSON body example
+    {
+        "bookId": 3,
+        "title": "Book 3",
+        "author": "Jonathan"
+    }
+- To update a book in the DB
+  - PUT /api/v1/books/:bookId (e.g. PUT /api/v1/books/1)
+  - if book update does not exist in the DB, return "Fail to update book!"
+  - if book exists in the DB, update book to the DB and return "Update successful!"
+- To delete a book in the DB
+  - DELETE /api/v1/books/:bookId (e.g. DELETE /api/v1/books/1)
+  - if book update does not exist in the DB, return "Fail to delete book!"
+  - if book exists in the DB, delete book to the DB and return "Delete successful!"
+
+  
