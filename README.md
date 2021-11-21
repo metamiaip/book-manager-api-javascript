@@ -87,4 +87,8 @@ API Call Syntax:
   - if book update does not exist in the DB, return "Fail to delete book!"
   - if book exists in the DB, delete book to the DB and return "Delete successful!"
 
-  
+- API Interactive Lab 2 (connect PostgreSQL DB in window 10):
+  - in package.json, please set "start-prod" as: "start-prod": "set NODE_ENV=prod&& node src/server.js"
+  - in src/server.js, please set as: require('dotenv').config({ path: `./.env.${environment}` });
+  - in .env.prod, add DB_PORT=5432 rather than put in DB_HOST
+  - in src/models/book.js, add option "timestamps: false,", otherwise, sequelize always add createdBy, updatedBy in all build SQL and fail your query (I forked the repo too early and this syntax is missing)

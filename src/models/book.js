@@ -17,6 +17,7 @@ const Book = sequelize.define('Book', {
     allowNull: false,
   },
 }, {
+  timestamps: false,
   modelName: 'Book',
 });
 
