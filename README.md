@@ -95,3 +95,21 @@ API Call Syntax:
 
 - To run the repo, please install as below:
   - npm install pg pg-hstore dotenv
+  - create your own '.env.dev' configuration file in the root directory of your project.
+    - (example):<br>
+      NODE_ENV=dev <br>
+      PORT=3000<br>
+      DB_NAME=sqlite::memory:<br>
+      DB_USERNAME=<br>
+      DB_PASSWORD=<br>
+      DB_HOST=localhost<br>
+      DB_DIALECT=sqlite<br>
+  - To run the application against different environments, please create a `.env.test` and a `.env.prod` in the root of the repository to specify configuration for these environments.
+  - You can then add a new script to the scripts section of the `package.json` to run the script for your specific environment. For example, the script below will enable you to run against the production configuration.
+    - example: <br>
+    "scripts": {<br>
+    "start": "node src/server.js",<br>
+    "start-prod": "NODE_ENV=prod node src/server.js",
+    "test": "jest"<br>
+    },<br>
+    npm start-prod
